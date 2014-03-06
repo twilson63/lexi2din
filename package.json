@@ -1,0 +1,28 @@
+{
+  "name": "lexi2din",
+  "version": "0.0.0",
+  "devDependencies": {
+    "napa": "^0.4.0",
+    "w3": "^0.3.1",
+    "brfs": "^1.0.0",
+    "watchify": "^0.6.1"
+  },
+  "scripts": {
+    "install": "napa",
+    "build-js": "browserify -t brfs app/app.js -o public/bundle.js",
+    "build-css": "cp -R node_modules/bootstrap/dist/* public",
+    "build": "npm run build-js & npm run build-css",
+    "watch": "watchify -t brfs app/app.js -o public/bundle.js",
+    "dev": "npm run watch & npm start",
+    "start": "w3 --directory public"
+  },
+  "napa": {
+    "angular": "angular/bower-angular",
+    "angular-ui-router": "angular-ui/ui-router",
+    "bootstrap": "twbs/bootstrap"
+  },
+  "dependencies": {
+    "browserify": "^3.32.0",
+    "mocha": "^1.17.1"
+  }
+}
