@@ -5,16 +5,13 @@
     "napa": "^0.4.0",
     "w3": "^0.4.1",
     "brfs": "^1.0.0",
-    "watchify": "^0.6.1"
+    "watchify": "^0.6.1",
+    "mocha": "^1.17.1",
+    "expect.js": "^0.3.1"
   },
   "scripts": {
-    "install": "napa",
-    "build-js": "browserify -t brfs app/app.js -o public/bundle.js",
-    "build-css": "cp -R node_modules/bootstrap/dist/* public",
-    "build": "npm run build-js & npm run build-css",
-    "watch": "watchify -t brfs app/app.js -o public/bundle.js",
-    "dev": "npm run watch & npm start",
-    "start": "w3 --directory public --pushstate"
+    "start": "beefy ../app/app.js 3000 --cwd public --live -- -t brfs -o bundle.js",
+    "test": "mocha -w"
   },
   "napa": {
     "angular": "angular/bower-angular",
@@ -23,6 +20,8 @@
   },
   "dependencies": {
     "browserify": "^3.32.0",
-    "mocha": "^1.17.1"
+    "mocha": "^1.17.1",
+    "beefy": "^1.1.0",
+    "underscore": "^1.6.0"
   }
 }

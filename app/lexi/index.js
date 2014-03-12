@@ -13,5 +13,14 @@ module.exports = angular.module('app.lexi',[])
         controller: require('./controllers/list.js'),
         template: fs.readFileSync(__dirname + '/templates/list.html', 'utf8')
       })
-      ;
+      .state('lexi.show', {
+        url:'/:id',
+        controller: require('./controllers/show.js'),
+        template: fs.readFileSync(__dirname + '/templates/show.html', 'utf8'),
+        resolve: {
+          doc: function($stateParams, $pouch) {
+            return $pouch.get($stateParams.id);
+          }
+        }
+      });
    });

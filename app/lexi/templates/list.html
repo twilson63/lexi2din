@@ -1,4 +1,8 @@
-<h1>FOOOOOOOOO  {{foo}} </h1>
-<h3>BEEP</h3>
+<div class="container">
+  <ul class="list">
+    <li ng-repeat="doc in docs" >
+      <a ui-sref="lexi.show({ id: doc._id })">{{doc.generic_product_name}}</a>
+    </li>
+  </ul>
+</div>
 
-<input ng-model='foo'>
